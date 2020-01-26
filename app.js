@@ -90,18 +90,8 @@ var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
     var sumArrayA = sum(sumArr[0], sumArr[1])[0];
-    // console.log(sumArrayA)
     var answerArraySum = sum(sumArrayA, sumArr[2])[0];   
 
-    // var SumArrTotal = 0;
-    
-    // for (var i = 0; i < sumArr.length; i+2){
-    //             var nexti = i+1;
-    //             var Array1 = sum(sumArr[i], sumArr[nexti])[0];
-    //             console.log(Array1);
-    //             var nexti = i+2;
-    //             SumArrTotal = sum(Array1, sumArr[nexti])[0];
-    // }   
     var testArrayString = sumArr[0] + ',' + sumArr[1] + ',' + sumArr[2] + ' was passed in as an array of numbers, and ' + answerArraySum + ' is their sum.'
     // console.log(answerArraySum);
     return [answerArraySum,testArrayString];
@@ -158,9 +148,34 @@ var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
 
-}
+    var arrList = dynamicArray.toString();
+    var totalDynArr = 1;
+    var newArr = dynamicArray;
+
+    for (var i = 0; i = dynamicArray.length; i++){
+
+        var MultiValue = newArr.pop();
+        //console.log(MultiValue);
+        var Multiply2 = totalDynArr;
+
+        var totalDynArr = multiply(MultiValue,Multiply2)[0];
+        // console.log("answer for index:" + i + " is : " + MultiValue + " x " + Multiply2 + ' = ' + totalDynArr);
+    }
+
+
+
+    var anyArrString = "The numbers " + arrList + " have a product of " + totalDynArr + ".";
+
+    console.log("total: " + totalDynArr);
+    console.log("string: " + anyArrString);
+
+    return [totalDynArr, anyArrString];
+
+};
+
+//multiplyAnyArray(testDynamicArray);
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
