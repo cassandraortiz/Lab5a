@@ -63,8 +63,8 @@ function sumAndMultiply(a, b, c) { //eslint-disable-line
 
     var productA = multiply(a, b)[0];
     var answerProduct = multiply(productA, c)[0];
-    var sumString = a + " and " + b + " and " + c + " sum to " + answerSum + ".";
-    var productString = "The product of " + a + " and " + b + " and " + c + " is " + answerProduct + ".";
+    var sumString = `${a} and ${b} and ${c} sum to ${answerSum}.` //a + " and " + b + " and " + c + " sum to " + answerSum + ".";
+    var productString = `The product of ${a} and ${b} and ${c} is ${answerProduct}.`//"The product of " + a + " and " + b + " and " + c + " is " + answerProduct + ".";
 
 //returns and array [sum of 3 numbers, product of 3#, stingsum, stringproduct ]
     return [answerSum, answerProduct, sumString, productString]
@@ -147,35 +147,28 @@ Test this function by hand in the console to get it working, and when you think 
 var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-
-    var arrList = dynamicArray.toString();
+    var arrList = Array.from(dynamicArray);
     var totalDynArr = 1;
-    var newArr = dynamicArray;
     var len = arrList.length;
+    var MultiValue;
+    var Multiply2;
+    var totalDynArr;
 
-    for (var i = 0; len; i++){
-        console.log("here is the dynamic array:" +  dynamicArray)
-        var MultiValue = newArr.pop();
-        // console.log(MultiValue);
-        var Multiply2 = totalDynArr;
 
-        var totalDynArr = multiply(MultiValue,Multiply2)[0];
-        console.log("answer for index:" + i + " is : " + MultiValue + " x " + Multiply2 + ' = ' + totalDynArr);
+    for (var i = 0; i < arrList.length; i++){
+        MultiValue = arrList[i]        
+        Multiply2 = totalDynArr;
+        totalDynArr = multiply(MultiValue,Multiply2)[0];
     }
 
-    var anyArrString = "The numbers " + arrList + " have a product of " + totalDynArr + ".";
-
-    // console.log("total: " + totalDynArr);
-    // console.log("string: " + anyArrString);
-    //console.log("string: " + 'The numbers 1,2,3,4,5 have a product of 120.')
+    var anyArrString = `The numbers ${arrList} have a product of ${totalDynArr}.`;
 
     return [totalDynArr, anyArrString];
-
 };
 
-multiplyAnyArray(testDynamicArray);
+//multiplyAnyArray(testDynamicArray);
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+ testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
